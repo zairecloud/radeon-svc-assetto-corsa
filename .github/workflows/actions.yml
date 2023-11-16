@@ -16,7 +16,7 @@ jobs:
           port: ${{ secrets.RADEON_SSH_PORT }}
           key: ${{ secrets.RADEON_SSH_PRIVATE_KEY }}
           source: "docker-compose.yml,config.yml"
-          target: $DEPLOY_DIR
+          target: ${{ env.DEPLOY_DIR }}
   ssh:
     name: Execute docker-compose up (ssh)
     runs-on: ubuntu-latest
@@ -29,6 +29,6 @@ jobs:
           username: ${{ secrets.RADEON_SSH_USER }}
           key: ${{ secrets.RADEON_SSH_PRIVATE_KEY }}
           port: ${{ secrets.RADEON_SSH_PORT }}
-          script: docker compose -f $DEPLOY_DIR/docker-compose.yml up -d
+          script: docker compose -f ${{ env.DEPLOY_DIR }}/docker-compose.yml up -d
             
 
