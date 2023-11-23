@@ -11,6 +11,7 @@ services:
     # the port that the assetto server HTTP API runs on.
     - "8081:8081"
     # you may also wish to bind your configured UDP plugin ports here. 
+    - "8082:8082" # Content Manager Wrapper port (enables downloading missing content from Content Manager)
     expose:
       - "8772"
     environment:
@@ -23,6 +24,7 @@ services:
     - ./server-install:/home/assetto/server-manager/assetto
     # volume mount the config
     - ./config.yml:/home/assetto/server-manager/config.yml
+    - ./server-manager.db:/home/assetto/server-manager/server-manager.db
     restart: unless-stopped
     networks:
       - nginx-proxy_network
