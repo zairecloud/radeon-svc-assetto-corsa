@@ -22,6 +22,7 @@ services:
     # volume mount the entire server install so that 
     # content etc persists across restarts
     - ./server-manager:/home/assetto/server-manager
+    - ./server-manager/assetto:/home/assetto/server-manager/assetto
     restart: unless-stopped
     networks:
       - nginx-proxy_network
