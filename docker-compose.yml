@@ -24,7 +24,6 @@ services:
     - ./server-install:/home/assetto/server-manager/assetto
     # volume mount the config
     - ./config.yml:/home/assetto/server-manager/config.yml
-    - ./server-manager.db:/home/assetto/server-manager/server-manager.db
     restart: unless-stopped
     networks:
       - nginx-proxy_network
